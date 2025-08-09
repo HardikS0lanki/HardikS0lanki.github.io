@@ -188,7 +188,7 @@
 
   <!-- HERO -->
   <header>
-  <div style="text-align: center; max-width: 600px; margin: 0 auto; font-family: 'Poppins', sans-serif; color: #00aaff;">
+  <div style="text-align: center; max-width: 600px; margin: 0 auto; font-family: 'Poppins', sans-serif; color: #fff;">
     <h2 style="
       font-weight: 700; 
       font-size: 2.5rem; 
@@ -204,18 +204,16 @@
       Partnering with forward-thinking organizations to build, protect, and future-proof their digital products against evolving cyber threats.
     </p>
 
-    <!-- Floating 3D tagline with teal-purple gradient -->
+    <!-- Floating 3D tagline with pure white glow -->
     <p style="
       font-style: italic;
       font-weight: 700;
       font-size: 1.6rem;
-      background: linear-gradient(45deg, #6a11cb, #2575fc);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #fff;
       text-shadow:
-        0 0 8px rgba(101, 67, 255, 0.7),
-        0 0 20px rgba(101, 67, 255, 0.7),
-        0 0 30px rgba(101, 67, 255, 0.7);
+        0 0 8px rgba(255, 255, 255, 0.9),
+        0 0 20px rgba(255, 255, 255, 0.7),
+        0 0 30px rgba(255, 255, 255, 0.6);
       transform: translateZ(0);
       animation: floatText 3s ease-in-out infinite;
       margin-bottom: 2rem;
@@ -223,45 +221,30 @@
       “Securing What’s Next, Today.”
     </p>
 
-    <!-- Buttons side-by-side -->
-    <div style="display: inline-flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-      <a href="#contact" 
-         class="cta-btn" 
-         style="
-           padding: 0.8rem 2.5rem;
-           font-weight: 700;
-           font-size: 1.1rem;
-           color: #fff;
-           background: #6a11cb; /* rich purple */
-           border-radius: 50px;
-           text-decoration: none;
-           box-shadow: 0 0 20px rgba(106, 17, 203, 0.7);
-           transition: background 0.3s ease, color 0.3s ease;
-         "
-         onmouseover="this.style.background='#4b0da3'; this.style.color='#eee';"
-         onmouseout="this.style.background='#6a11cb'; this.style.color='#fff';"
-      >
-        Hire Me
-      </a>
-      <a href="#contact" 
-         class="cta-btn" 
-         style="
-           padding: 0.8rem 2.5rem;
-           font-weight: 700;
-           font-size: 1.1rem;
-           color: #6a11cb;
-           background: #e0d9ff; /* light purple */
-           border-radius: 50px;
-           text-decoration: none;
-           box-shadow: 0 0 12px rgba(106, 17, 203, 0.3);
-           transition: background 0.3s ease, color 0.3s ease;
-         "
-         onmouseover="this.style.background='#c9bfff'; this.style.color='#4b0da3';"
-         onmouseout="this.style.background='#e0d9ff'; this.style.color='#6a11cb';"
-      >
-        Let’s Build Security Together
-      </a>
-    </div>
+    <!-- Single combined button -->
+    <a href="#contact" 
+       class="cta-btn" 
+       style="
+         padding: 1rem 3.5rem;
+         font-weight: 700;
+         font-size: 1.2rem;
+         color: #fff;
+         background: #6a11cb; /* rich purple */
+         border-radius: 50px;
+         text-decoration: none;
+         box-shadow: 0 0 25px rgba(106, 17, 203, 0.85);
+         transition: background 0.3s ease, color 0.3s ease;
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         white-space: nowrap;
+         cursor: pointer;
+       "
+       onmouseover="this.style.background='#4b0da3'; this.style.color='#eee';"
+       onmouseout="this.style.background='#6a11cb'; this.style.color='#fff';"
+    >
+      Hire Me - Let’s Build Security Together
+    </a>
   </div>
 
   <style>
@@ -269,22 +252,20 @@
       0%, 100% {
         transform: translateY(0) translateZ(0);
         text-shadow:
-          0 0 8px rgba(101, 67, 255, 0.7),
-          0 0 20px rgba(101, 67, 255, 0.7),
-          0 0 30px rgba(101, 67, 255, 0.7);
+          0 0 8px rgba(255, 255, 255, 0.9),
+          0 0 20px rgba(255, 255, 255, 0.7),
+          0 0 30px rgba(255, 255, 255, 0.6);
       }
       50% {
         transform: translateY(-10px) translateZ(0);
         text-shadow:
-          0 0 12px rgba(101, 67, 255, 0.9),
-          0 0 25px rgba(101, 67, 255, 0.9),
-          0 0 40px rgba(101, 67, 255, 0.9);
+          0 0 12px rgba(255, 255, 255, 1),
+          0 0 25px rgba(255, 255, 255, 0.9),
+          0 0 40px rgba(255, 255, 255, 0.8);
       }
     }
   </style>
 </header>
-
-
 
   <!-- ABOUT -->
   <section id="about">
