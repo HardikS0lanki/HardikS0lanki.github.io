@@ -213,57 +213,439 @@
       <circle cx="200" cy="200" r="70" stroke="#333" stroke-width="15" fill="none" />
       <circle cx="200" cy="200" r="50" stroke="#333" stroke-width="15" fill="none" />
 
-<svg width="400" height="280" viewBox="0 0 400 280" style="display: block; margin: 3rem auto;">
-  <!-- Background semicircle -->
-  <path
-    d="M 50 200 A 150 150 0 0 1 350 200"
-    fill="none"
-    stroke="#222"
-    stroke-width="20"
-    stroke-linecap="round"
-  />
-  <!-- Progress arc (95%) -->
-  <path
-    d="M 50 200 A 150 150 0 0 1 335 115"
-    fill="none"
-    stroke="#00ffd5"
-    stroke-width="20"
-    stroke-linecap="round"
-    style="filter: drop-shadow(0 0 10px #00ffd5); transition: stroke-dashoffset 1.5s ease-in-out;"
-  />
-  <!-- Needle -->
-  <line
-    x1="200"
-    y1="200"
-    x2="325"
-    y2="115"
-    stroke="#00ffd5"
-    stroke-width="4"
-    stroke-linecap="round"
-    style="filter: drop-shadow(0 0 12px #00ffd5);"
-  />
-  <!-- Center circle -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hardik Solanki - Cybersecurity Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    /* ===== GENERAL RESET ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: #fff;
+      background: #0e0e0e;
+      scroll-behavior: smooth;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ===== NAVIGATION ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      padding: 1rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      backdrop-filter: blur(6px);
+    }
+    nav h1 { font-size: 1.5rem; color: #00ffd5; font-weight: 800; }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; }
+    nav ul li a {
+      font-weight: 600;
+      transition: 0.3s;
+      padding: 0.5rem 0.8rem;
+      border-radius: 5px;
+    }
+    nav ul li a:hover {
+      background: #00ffd5;
+      color: #000;
+      transform: scale(1.05);
+    }
+
+    /* ===== HERO ===== */
+    header {
+      height: 100vh;
+      background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(14,14,14,0.7)),
+                  url('https://images.unsplash.com/photo-1535223289827-42f1e9919769') center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    header h2 { font-size: 3rem; font-weight: 800; color: #00ffd5; }
+    header p { font-size: 1.3rem; max-width: 600px; margin: 1rem auto; }
+    .cta-btn {
+      margin-top: 1.5rem;
+      padding: 0.8rem 2rem;
+      background: #00ffd5;
+      color: #000;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .cta-btn:hover { transform: scale(1.1); background: #00cca6; }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 5rem 3rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #00ffd5;
+    }
+    .section-content {
+      display: grid;
+      gap: 2rem;
+    }
+
+    /* ===== SKILLS ===== */
+    .skill {
+      background: #1a1a1a;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,255,213,0.2);
+      transition: transform 0.3s;
+    }
+    .skill:hover { transform: translateY(-5px) scale(1.02); }
+    .progress-bar {
+      height: 10px;
+      background: #333;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-top: 0.5rem;
+    }
+    .progress-fill {
+      height: 100%;
+      background: #00ffd5;
+      width: 0;
+      transition: width 1.5s ease-in-out;
+    }
+
+    /* ===== EXPERIENCE TIMELINE ===== */
+    .timeline {
+      border-left: 3px solid #00ffd5;
+      padding-left: 1.5rem;
+    }
+    .timeline-item {
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 0;
+      width: 15px; height: 15px;
+      background: #00ffd5;
+      border-radius: 50%;
+    }
+
+    /* ===== CONTACT FORM ===== */
+    form {
+      background: #1a1a1a;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,255,213,0.2);
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 5px;
+      background: #0e0e0e;
+      color: #fff;
+    }
+    form button {
+      background: #00ffd5;
+      color: #000;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+    form button:hover { background: #00cca6; transform: scale(1.05); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #000;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    .socials a {
+      margin: 0 10px;
+      color: #00ffd5;
+      font-size: 1.5rem;
+      transition: 0.3s;
+    }
+    .socials a:hover { color: #00cca6; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <h1>Hardik Solanki</h1>
+    <ul>
+      <li><a href="#about">Profile</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#certs">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header>
+    <div>
+      <h2>Product & Application Security Engineer</h2>
+      <p>7+ years of expertise in Cybersecurity with a Master’s in Cyber Security. Helping organizations secure their digital products against evolving threats.</p>
+      <a href="#contact" class="cta-btn">Hire Me</a>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>Profile Summary</h2>
+    <div class="section-content">
+      <p>I am a highly experienced Cybersecurity professional specializing in Application and Product Security, Threat Modeling, Secure SDLC, and Vulnerability Management. With hands-on expertise in modern DevSecOps practices, I ensure security is built into the product lifecycle from design to deployment.</p>
+    </div>
+  </section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div style="max-width: 700px; margin: auto; display: flex; justify-content: center;">
+    <svg viewBox="0 0 400 400" width="400" height="400" style="transform: rotate(-90deg);">
+      <!-- Background circles -->
+      <circle cx="200" cy="200" r="90" stroke="#333" stroke-width="15" fill="none" />
+      <circle cx="200" cy="200" r="70" stroke="#333" stroke-width="15" fill="none" />
+      <circle cx="200" cy="200" r="50" stroke="#333" stroke-width="15" fill="none" />
+
+      <!-- Skill arcs -->
+<svg width="400" height="400" viewBox="0 0 400 400" style="display:block; margin:auto;">
+
+  <!-- Background circle (track) -->
+  <circle cx="200" cy="200" r="90" stroke="#222" stroke-width="18" fill="none" />
+
+  <!-- Gradient definition -->
+  <defs>
+    <linearGradient id="gradient" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#00ffd5" />
+      <stop offset="50%" stop-color="#00bfa5" />
+      <stop offset="100%" stop-color="#008374" />
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%" >
+      <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#00ffd5" flood-opacity="0.7"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#00ffd5" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Progress circle with gradient stroke and glow -->
   <circle
     cx="200"
     cy="200"
-    r="14"
-    fill="#00ffd5"
-    style="filter: drop-shadow(0 0 12px #00ffd5);"
-  />
-  <!-- Label horizontally and vertically centered -->
-  <text
-    x="200"
-    y="140"
-    font-family="Poppins, sans-serif"
-    font-weight="700"
-    font-size="22"
-    fill="#00ffd5"
-    text-anchor="middle"
-    dominant-baseline="middle"
+    r="90"
+    stroke="url(#gradient)"
+    stroke-width="15"
+    fill="none"
+    stroke-dasharray="565.48"
+    stroke-dashoffset="565.48"
+    stroke-linecap="round"
+    filter="url(#glow)"
+    style="transform: rotate(-90deg); transform-origin: 50% 50%; transition: stroke-dashoffset 2s ease-out;"
   >
-    Product &amp; Application Security 95%
+  </circle>
+
+  <!-- Label background (for better readability) -->
+  <rect x="280" y="90" width="120" height="35" rx="10" ry="10" fill="rgba(0,0,0,0.6)" />
+
+  <!-- Label text -->
+  <text x="290" y="115" fill="#00ffd5" font-weight="700" font-size="14" font-family="Poppins, sans-serif">
+    Product & Application Security 95%
   </text>
+
+  <script>
+    // Animate stroke-dashoffset on load to reveal the progress arc
+    const circle = document.querySelector('circle[stroke^="url"]');
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        circle.style.strokeDashoffset = '28';
+      }, 500);
+    });
+  </script>
 </svg>
+  </div>
+
+  <div style="max-width: 700px; margin: 2rem auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+
+    <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+      <h3>Secure Architecture & Design Review</h3>
+      <div class="progress-bar"><div class="progress-fill" data-fill="90%"></div></div>
+    </div>
+
+    <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+      <h3>Threat Modeling & Secure Code Reviews</h3>
+      <div class="progress-bar"><div class="progress-fill" data-fill="89%"></div></div>
+    </div>
+
+    <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+      <h3>CI/CD Pipeline Security & DevSecOps</h3>
+      <div class="progress-bar"><div class="progress-fill" data-fill="88%"></div></div>
+    </div>
+
+    <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+      <h3>Incident Response (PSIRT)</h3>
+      <div class="progress-bar"><div class="progress-fill" data-fill="85%"></div></div>
+    </div>
+
+    <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+      <h3>Risk Acceptance & Risk Assessment</h3>
+      <div class="progress-bar"><div class="progress-fill" data-fill="83%"></div></div>
+    </div>
+
+    <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+      <h3>AWS Cloud Security</h3>
+      <div class="progress-bar"><div class="progress-fill" data-fill="85%"></div></div>
+    </div>
+
+    <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+      <h3>Vulnerability Assessment</h3>
+      <div class="progress-bar"><div class="progress-fill" data-fill="87%"></div></div>
+    </div>
+
+    <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+      <h3>Penetration Testing</h3>
+      <div class="progress-bar"><div class="progress-fill" data-fill="85%"></div></div>
+    </div>
+
+    <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+      <h3>Network Security</h3>
+      <div class="progress-bar"><div class="progress-fill" data-fill="82%"></div></div>
+    </div>
+
+    <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+      <h3>Wireless Security</h3>
+      <div class="progress-bar"><div class="progress-fill" data-fill="80%"></div></div>
+    </div>
+
+    <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+      <h3>Configuration Reviews</h3>
+      <div class="progress-bar"><div class="progress-fill" data-fill="80%"></div></div>
+    </div>
+  </div>
+
+  <style>
+    .progress-bar {
+      height: 10px;
+      background: #333;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-top: 0.5rem;
+    }
+    .progress-fill {
+      height: 100%;
+      background: #00ffd5;
+      width: 0;
+      transition: width 1.5s ease-in-out;
+    }
+  </style>
+
+  <script>
+    // Animate progress bars on scroll
+    const fills = document.querySelectorAll('.progress-fill');
+    window.addEventListener('scroll', () => {
+      fills.forEach(fill => {
+        const rect = fill.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          fill.style.width = fill.getAttribute('data-fill');
+        }
+      });
+    });
+  </script>
+</section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <h2>Work Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Senior Product Security Engineer - XYZ Corp</h3>
+        <span>2020 - Present</span>
+        <p>Lead security reviews, integrated security automation in CI/CD pipelines, and managed product security incident response.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>Application Security Engineer - ABC Ltd</h3>
+        <span>2016 - 2020</span>
+        <p>Performed static and dynamic code analysis, penetration testing, and secure code reviews.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <h2>Education</h2>
+    <p>Master’s in Cybersecurity - University of XYZ</p>
+    <p>Bachelor’s in Computer Engineering - University of ABC</p>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certs">
+    <h2>Certifications & Awards</h2>
+    <ul>
+      <li>Certified Ethical Hacker (CEH)</li>
+      <li>Certified Cloud Security Professional (CCSP)</li>
+      <li>Awarded "Top Cybersecurity Engineer" - 2022</li>
+    </ul>
+  </section>
+
+  <!-- CONTACT -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: <a href="mailto:Hardiksolanki096@gmail.com">Hardiksolanki096@gmail.com</a></p>
+
+        <div class="contact-form">
+            <form action="mailto:Hardiksolanki096@gmail.com" method="post" enctype="text/plain">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="5" placeholder="Your Message"></textarea>
+                <button type="submit">Send Email</button>
+            </form>
+        </div>
+    </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="socials">
+        <a href="https://www.linkedin.com/in/hardiksolanki10" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/HardikS0lanki" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://x.com/Hardik_S0lanki" target="_blank"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://hardik-solanki.medium.com/" target="_blank"><i class="fab fa-medium"></i></a>
+    </div>
+    <p>&copy; 2025 Hardik Solanki. All Rights Reserved.</p>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    // Animate progress bars on scroll
+    const fills = document.querySelectorAll('.progress-fill');
+    window.addEventListener('scroll', () => {
+      fills.forEach(fill => {
+        const rect = fill.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          fill.style.width = fill.getAttribute('data-fill');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
 
   </div>
 
