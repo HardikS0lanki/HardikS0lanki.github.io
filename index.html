@@ -1,368 +1,546 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Hardik Solanki | Advanced Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hardik Solanki - Cybersecurity Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
-    /* === Global Reset and Body === */
-    *, *::before, *::after {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
+    /* ===== GENERAL RESET ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Poppins', sans-serif;
-      background: #0a0f1c;
-      color: #e0e0e0;
-      overflow-x: hidden;
-      min-height: 100vh;
-      position: relative;
+      line-height: 1.6;
+      color: #fff;
+      background: #0e0e0e;
+      scroll-behavior: smooth;
     }
-    a {
-      color: #00f7ff;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-    a:hover {
-      color: #00c9d9;
-    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
 
-    /* === Background Canvas === */
-    #bgCanvas {
+    /* ===== NAVIGATION ===== */
+    nav {
       position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: -1;
-      background: #0a0f1c;
-    }
-
-    /* === Header === */
-    header {
-      position: sticky;
-      top: 0;
-      background: rgba(10, 15, 28, 0.85);
-      backdrop-filter: saturate(180%) blur(10px);
+      top: 0; left: 0; width: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      padding: 1rem 3rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 5vw;
-      z-index: 100;
-      border-bottom: 1px solid #00f7ff33;
-      user-select: none;
+      z-index: 1000;
+      backdrop-filter: blur(6px);
     }
-    .logo {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 1.8rem;
-      letter-spacing: 2px;
-      color: #00f7ff;
-    }
-    nav a {
-      margin-left: 2rem;
+    nav h1 { font-size: 1.5rem; color: #00ffd5; font-weight: 800; }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; }
+    nav ul li a {
       font-weight: 600;
-      font-size: 1rem;
-      letter-spacing: 0.8px;
+      transition: 0.3s;
+      padding: 0.5rem 0.8rem;
+      border-radius: 5px;
     }
-
-    /* === Section Cards === */
-    section {
-      max-width: 960px;
-      margin: 4rem auto;
-      padding: 2rem 2rem 3rem;
-      background: rgba(255 255 255 / 0.08);
-      border-radius: 16px;
-      box-shadow: 0 0 25px rgb(0 247 255 / 0.2);
-      backdrop-filter: blur(14px);
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    section h2 {
-      color: #00f7ff;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      letter-spacing: 1.2px;
-      border-bottom: 2px solid #00f7ff;
-      padding-bottom: 0.3rem;
-      width: fit-content;
-    }
-    section p {
-      font-weight: 400;
-      line-height: 1.5;
-      color: #d0d0d0;
-    }
-
-    /* === Skills List === */
-    ul.skills-list {
-      list-style: none;
-      margin-top: 1rem;
-    }
-    ul.skills-list li {
-      margin-bottom: 0.8rem;
-      font-weight: 500;
-      font-size: 1.05rem;
-      padding-left: 1rem;
-      position: relative;
-    }
-    ul.skills-list li::before {
-      content: "▹";
-      color: #00f7ff;
-      position: absolute;
-      left: 0;
-      font-weight: 700;
-      font-size: 1.2rem;
-      top: 0;
-      line-height: 1;
-    }
-
-    /* === Projects Grid === */
-    .projects-grid {
-      margin-top: 1.5rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-      gap: 1.8rem;
-    }
-    .project {
-      background: rgba(255 255 255 / 0.1);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 0 15px rgb(0 247 255 / 0.2);
-      cursor: pointer;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-    .project:hover {
-      transform: translateY(-6px) scale(1.03);
-      box-shadow: 0 0 30px rgb(0 247 255 / 0.6);
-    }
-    .project img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-      border-bottom: 2px solid #00f7ff;
-    }
-    .project:hover img {
+    nav ul li a:hover {
+      background: #00ffd5;
+      color: #000;
       transform: scale(1.05);
     }
-    .project-content {
-      padding: 1rem 1.2rem 1.5rem;
-      flex-grow: 1;
+
+    /* ===== HERO ===== */
+    header {
+      height: 100vh;
+      background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(14,14,14,0.7)),
+                  url('https://images.unsplash.com/photo-1535223289827-42f1e9919769') center/cover;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .project h3 {
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: #00f7ff;
-      margin-bottom: 0.5rem;
-      letter-spacing: 0.8px;
-    }
-    .project p {
-      color: #c0c0c0;
-      font-weight: 400;
-      font-size: 1rem;
-      flex-grow: 1;
-    }
-
-    /* === Contact Section === */
-    #contact p {
-      font-size: 1.1rem;
-      margin-bottom: 0.8rem;
-    }
-
-    /* === Footer === */
-    footer {
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 1.5rem 0;
-      font-weight: 400;
-      font-size: 0.9rem;
-      color: #00f7ffaa;
-      letter-spacing: 0.5px;
-      user-select: none;
+      padding: 2rem;
+    }
+    header h2 { font-size: 3rem; font-weight: 800; color: #00ffd5; }
+    header p { font-size: 1.3rem; max-width: 600px; margin: 1rem auto; }
+    .cta-btn {
+      margin-top: 1.5rem;
+      padding: 0.8rem 2rem;
+      background: #00ffd5;
+      color: #000;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .cta-btn:hover { transform: scale(1.1); background: #00cca6; }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 5rem 3rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      color: #00ffd5;
+    }
+    .section-content {
+      display: grid;
+      gap: 2rem;
     }
 
-    /* === Responsive tweaks === */
-    @media (max-width: 480px) {
-      header {
-        flex-direction: column;
-        gap: 0.8rem;
-      }
-      nav a {
-        margin-left: 0;
-        margin-right: 1rem;
-      }
+    /* ===== SKILLS ===== */
+    .skill {
+      background: #1a1a1a;
+      padding: 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,255,213,0.2);
+      transition: transform 0.3s;
     }
+    .skill:hover { transform: translateY(-5px) scale(1.02); }
+    .progress-bar {
+      height: 10px;
+      background: #333;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-top: 0.5rem;
+    }
+    .progress-fill {
+      height: 100%;
+      background: #00ffd5;
+      width: 0;
+      transition: width 1.5s ease-in-out;
+    }
+
+    /* ===== EXPERIENCE TIMELINE ===== */
+    .timeline {
+      border-left: 3px solid #00ffd5;
+      padding-left: 1.5rem;
+    }
+    .timeline-item {
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 0;
+      width: 15px; height: 15px;
+      background: #00ffd5;
+      border-radius: 50%;
+    }
+
+    /* ===== CONTACT FORM ===== */
+    form {
+      background: #1a1a1a;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,255,213,0.2);
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 5px;
+      background: #0e0e0e;
+      color: #fff;
+    }
+    form button {
+      background: #00ffd5;
+      color: #000;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+    form button:hover { background: #00cca6; transform: scale(1.05); }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #000;
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    .socials a {
+      margin: 0 10px;
+      color: #00ffd5;
+      font-size: 1.5rem;
+      transition: 0.3s;
+    }
+    .socials a:hover { color: #00cca6; }
   </style>
 </head>
 <body>
 
-  <canvas id="bgCanvas"></canvas>
-
-  <header>
-    <div class="logo">Hardik Solanki</div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
-
-  <section id="about" class="fade-section">
-    <h2>About Me</h2>
-    <p>
-      I’m Hardik Solanki, a cybersecurity engineer with a passion for product & application security. I specialize in threat modeling, secure SDLC, and DevSecOps. I love crafting secure, scalable digital products and sharing knowledge with the community.
-    </p>
-  </section>
-
-  <section id="skills" class="fade-section">
-    <h2>Skills</h2>
-    <ul class="skills-list">
-      <li>Application & Product Security</li>
-      <li>Secure SDLC / SSDLC</li>
-      <li>Threat Modeling & Risk Assessment</li>
-      <li>DevSecOps & CI/CD Security</li>
-      <li>Penetration Testing & Vulnerability Assessment</li>
-      <li>AWS Cloud Security</li>
-      <li>Incident Response & Risk Management</li>
+  <!-- NAVIGATION -->
+  <nav>
+    <h1>Hardik Solanki</h1>
+    <ul>
+      <li><a href="#about">Profile</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#certs">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header>
+  <div style="text-align: center; width: max-content; margin: 0 auto; font-family: 'Poppins', sans-serif; color: #00ffd5;">
+    <h2 style="white-space: nowrap; margin: 0;">
+      Product & Application Security Engineer
+    </h2>
+
+  <div style="width: max-content; margin: 0 auto; text-align: center;">
+  <p style="font-weight: 600; font-size: 1.2rem; margin: 0.3rem 0 1rem 0; color: #fff; white-space: nowrap;">
+    6+ Years of Proven Expertise | MSc.Cybersecurity (Dublin, Ireland)
+  </p>
+</div>
+<div style="max-width: 1500px; margin: 0 auto; text-align: center;">
+  <p style="font-weight: 600; font-size: 1rem; margin: 0.3rem 0; color: #fff; white-space: nowrap;">
+    Partnering with forward-thinking organizations to build, protect, and future-proof their digital products against evolving cyber threats.
+  </p>
+</div>
+
+
+    <!-- Floating 3D tagline -->
+    <p style="
+      font-style: italic;
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: #fff;
+      text-shadow:
+        0 0 8px #fff,
+        0 0 20px #fff,
+        0 0 30px #fff,
+        0 0 40px #fff;
+      transform: translateZ(0);
+      animation: floatText 3s ease-in-out infinite;
+      margin-bottom: 2rem;
+    ">
+      “Securing What’s Next, Today.”
+    </p>
+
+    <a href="#contact" 
+       class="cta-btn" 
+       style="
+         display: inline-block;
+         padding: 0.8rem 2.5rem;
+         font-weight: 700;
+         font-size: 1.1rem;
+         color: #000;
+         background: #00ffd5;
+         border-radius: 50px;
+         text-decoration: none;
+         box-shadow: 0 0 20px rgba(0, 255, 213, 0.7);
+         transition: background 0.3s ease, color 0.3s ease;
+       "
+       onmouseover="this.style.background='#00e6c3'; this.style.color='#111';"
+       onmouseout="this.style.background='#00ffd5'; this.style.color='#000';"
+    >
+      Let’s Build Security Together
+    </a>
+  </div>
+
+  <style>
+    @keyframes floatText {
+      0%, 100% {
+        transform: translateY(0) translateZ(0);
+        text-shadow:
+          0 0 8px #00ffd5,
+          0 0 20px #00ffd5,
+          0 0 30px #00ffd5,
+          0 0 40px #00ffd5;
+      }
+      50% {
+        transform: translateY(-10px) translateZ(0);
+        text-shadow:
+          0 0 12px #00ffd5,
+          0 0 25px #00ffd5,
+          0 0 40px #00ffd5,
+          0 0 60px #00ffd5;
+      }
+    }
+  </style>
+</header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>Profile Summary</h2>
+<div class="section-content">
+  <p>
+    I am an enthusiastic and results-driven Senior Security Engineer with over 6 years of progressive experience in Application and Product Security, combining deep expertise in both offensive and defensive security practices. I specialize in Threat Modeling, Secure SDLC/SSDLC, Security Architecture, and Vulnerability Management—embedding security seamlessly into the product lifecycle from design to deployment with a strong shift-left approach. My hands-on experience spans Secure Design Reviews, Secure Coding Practices, Penetration Testing, and Compliance & Auditing, with a strong command of leading industry standards such as OWASP Top 10, OWASP ASVS, NIST, and CWE/SANS Top 25. 
+    <br><br>
+    Passionate about modern DevSecOps practices, I focus on automating security testing, integrating robust security controls into CI/CD pipelines, and fostering a culture of secure coding and engineering excellence. Skilled in risk identification and mitigation across infrastructure and application layers, I am recognized for resolving security issues within defined SLAs, clear cross-functional communication, and a collaborative approach that strengthens organizational security posture. I am eager to contribute to innovative, security-first initiatives in forward-thinking environments.
+  </p>
+</div>
+
   </section>
 
-  <section id="projects" class="fade-section">
-    <h2>Projects</h2>
-    <div class="projects-grid">
-      <div class="project" tabindex="0" aria-label="Project 1 - AI-powered Threat Detection">
-        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=400&q=80" alt="AI-powered Threat Detection dashboard" />
-        <div class="project-content">
-          <h3>AI-powered Threat Detection</h3>
-          <p>A cutting-edge platform that leverages machine learning to detect and mitigate cyber threats in real-time.</p>
-        </div>
+<!-- SKILLS -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div style="max-width: 700px; margin: auto; display: flex; justify-content: center;">
+    <svg viewBox="0 0 400 400" width="400" height="400" style="transform: rotate(-90deg);">
+      <!-- Background circles -->
+      <circle cx="200" cy="200" r="90" stroke="#333" stroke-width="15" fill="none" />
+      <circle cx="200" cy="200" r="70" stroke="#333" stroke-width="15" fill="none" />
+      <circle cx="200" cy="200" r="50" stroke="#333" stroke-width="15" fill="none" />
+
+<svg width="480" height="280" viewBox="0 0 480 280" style="display: block; margin: 3rem auto;">
+  <!-- Background semicircle -->
+  <path
+    d="M 50 200 A 150 150 0 0 1 350 200"
+    fill="none"
+    stroke="#222"
+    stroke-width="20"
+    stroke-linecap="round"
+  />
+  <!-- Progress arc (95%) -->
+  <path
+    d="M 50 200 A 150 150 0 0 1 341 122"
+    fill="none"
+    stroke="#00ffd5"
+    stroke-width="20"
+    stroke-linecap="round"
+    style="filter: drop-shadow(0 0 10px #00ffd5); transition: stroke-dashoffset 1.5s ease-in-out;"
+  />
+  <!-- Needle -->
+  <line
+    x1="200"
+    y1="200"
+    x2="341"
+    y2="122"
+    stroke="#00ffd5"
+    stroke-width="4"
+    stroke-linecap="round"
+    style="filter: drop-shadow(0 0 12px #00ffd5);"
+  />
+  <!-- Center circle -->
+  <circle
+    cx="200"
+    cy="200"
+    r="14"
+    fill="#00ffd5"
+    style="filter: drop-shadow(0 0 12px #00ffd5);"
+  />
+  <!-- Vertical label on right side, upright -->
+  <text
+    x="450"
+    y="140"
+    font-family="Poppins, sans-serif"
+    font-weight="700"
+    font-size="18"
+    fill="#00ffd5"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    transform="rotate(90 450,140)"
+  >
+    Product &amp; Application Security 95%
+  </text>
+</svg>
+
+
+  </div>
+
+  <div style="max-width: 700px; margin: 2rem auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Application Security</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="92%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Product Security</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="90%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Secure Software Development Lifecycle (SDLC / SSDLC)</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="91%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Secure Design Review</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="89%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Security Architecture Review</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="88%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Threat Modeling</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="87%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Secure Code Reviews</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="87%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>CI/CD Pipeline Security</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="88%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>DevSecOps</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="88%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Incident Response (PSIRT)</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="85%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Risk Acceptance</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="83%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Risk Assessment</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="83%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>AWS Cloud Security</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="85%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Vulnerability Assessment</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="87%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Penetration Testing</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="85%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Network Security</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="82%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Wireless Security</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="80%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Configuration Reviews</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="80%"></div></div>
+  </div>
+
+</div>
+
+  <style>
+    .progress-bar {
+      height: 10px;
+      background: #333;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-top: 0.5rem;
+    }
+    .progress-fill {
+      height: 100%;
+      background: #00ffd5;
+      width: 0;
+      transition: width 1.5s ease-in-out;
+    }
+  </style>
+
+  <script>
+    // Animate progress bars on scroll
+    const fills = document.querySelectorAll('.progress-fill');
+    window.addEventListener('scroll', () => {
+      fills.forEach(fill => {
+        const rect = fill.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          fill.style.width = fill.getAttribute('data-fill');
+        }
+      });
+    });
+  </script>
+</section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <h2>Work Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Senior Product Security Engineer - XYZ Corp</h3>
+        <span>2020 - Present</span>
+        <p>Lead security reviews, integrated security automation in CI/CD pipelines, and managed product security incident response.</p>
       </div>
-      <div class="project" tabindex="0" aria-label="Project 2 - Secure DevOps Pipeline">
-        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" alt="DevOps pipeline dashboard" />
-        <div class="project-content">
-          <h3>Secure DevOps Pipeline</h3>
-          <p>Integrated security automation into CI/CD workflows to enhance continuous delivery without compromising safety.</p>
-        </div>
-      </div>
-      <div class="project" tabindex="0" aria-label="Project 3 - Cloud Security Dashboard">
-        <img src="https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=400&q=80" alt="Cloud security analytics dashboard" />
-        <div class="project-content">
-          <h3>Cloud Security Dashboard</h3>
-          <p>A comprehensive visualization tool providing insights and compliance monitoring across multi-cloud environments.</p>
-        </div>
+      <div class="timeline-item">
+        <h3>Application Security Engineer - ABC Ltd</h3>
+        <span>2016 - 2020</span>
+        <p>Performed static and dynamic code analysis, penetration testing, and secure code reviews.</p>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="fade-section">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:Hardiksolanki096@gmail.com">Hardiksolanki096@gmail.com</a></p>
-    <p>GitHub: <a href="https://github.com/HardikS0lanki" target="_blank" rel="noopener noreferrer">github.com/HardikS0lanki</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/hardiksolanki10" target="_blank" rel="noopener noreferrer">linkedin.com/in/hardiksolanki10</a></p>
+  <!-- EDUCATION -->
+  <section id="education">
+    <h2>Education</h2>
+    <p>Master’s in Cybersecurity - University of XYZ</p>
+    <p>Bachelor’s in Computer Engineering - University of ABC</p>
   </section>
 
-  <footer>© 2025 Hardik Solanki</footer>
+  <!-- CERTIFICATIONS -->
+  <section id="certs">
+    <h2>Certifications & Awards</h2>
+    <ul>
+      <li>Certified Ethical Hacker (CEH)</li>
+      <li>Certified Cloud Security Professional (CCSP)</li>
+      <li>Awarded "Top Cybersecurity Engineer" - 2022</li>
+    </ul>
+  </section>
 
+  <!-- CONTACT -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: <a href="mailto:Hardiksolanki096@gmail.com">Hardiksolanki096@gmail.com</a></p>
+
+        <div class="contact-form">
+            <form action="mailto:Hardiksolanki096@gmail.com" method="post" enctype="text/plain">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" rows="5" placeholder="Your Message"></textarea>
+                <button type="submit">Send Email</button>
+            </form>
+        </div>
+    </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="socials">
+        <a href="https://www.linkedin.com/in/hardiksolanki10" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/HardikS0lanki" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://x.com/Hardik_S0lanki" target="_blank"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://hardik-solanki.medium.com/" target="_blank"><i class="fab fa-medium"></i></a>
+    </div>
+    <p>&copy; 2025 Hardik Solanki. All Rights Reserved.</p>
+  </footer>
+
+  <!-- SCRIPT -->
   <script>
-    // Canvas particle network background
-    const canvas = document.getElementById('bgCanvas');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-    const particleCount = 100;
-
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    window.addEventListener('resize', () => {
-      resizeCanvas();
-      initParticles();
+    // Animate progress bars on scroll
+    const fills = document.querySelectorAll('.progress-fill');
+    window.addEventListener('scroll', () => {
+      fills.forEach(fill => {
+        const rect = fill.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          fill.style.width = fill.getAttribute('data-fill');
+        }
+      });
     });
-    resizeCanvas();
-
-    function random(min, max) {
-      return Math.random() * (max - min) + min;
-    }
-
-    function initParticles() {
-      particles = [];
-      for (let i = 0; i < particleCount; i++) {
-        particles.push({
-          x: random(0, canvas.width),
-          y: random(0, canvas.height),
-          vx: random(-0.3, 0.3),
-          vy: random(-0.3, 0.3),
-          size: random(1, 2.5)
-        });
-      }
-    }
-    initParticles();
-
-    function draw() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#00f7ff';
-
-      // Draw particles
-      particles.forEach(p => {
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fill();
-      });
-
-      // Draw connecting lines
-      for (let i = 0; i < particleCount; i++) {
-        for (let j = i + 1; j < particleCount; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < 120) {
-            ctx.strokeStyle = `rgba(0, 247, 255, ${(120 - dist) / 120 * 0.15})`;
-            ctx.lineWidth = 1;
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
-          }
-        }
-      }
-    }
-
-    function animate() {
-      particles.forEach(p => {
-        p.x += p.vx;
-        p.y += p.vy;
-
-        if (p.x <= 0 || p.x >= canvas.width) p.vx *= -1;
-        if (p.y <= 0 || p.y >= canvas.height) p.vy *= -1;
-      });
-      draw();
-      requestAnimationFrame(animate);
-    }
-    animate();
-
-    // Fade-in sections on scroll
-    const sections = document.querySelectorAll('.fade-section');
-    function revealSections() {
-      const triggerBottom = window.innerHeight * 0.85;
-      sections.forEach(section => {
-        const top = section.getBoundingClientRect().top;
-        if (top < triggerBottom) {
-          section.classList.add('visible');
-        }
-      });
-    }
-    window.addEventListener('scroll', revealSections);
-    revealSections();
   </script>
 </body>
 </html>
