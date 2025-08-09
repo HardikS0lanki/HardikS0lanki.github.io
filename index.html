@@ -188,8 +188,15 @@
 
   <!-- HERO -->
   <header>
-  <div style="text-align: center; max-width: 600px; margin: 0 auto; font-family: 'Poppins', sans-serif; color: #00ffd5;">
-    <h2>Product & Application Security Engineer</h2>
+  <div style="text-align: center; max-width: 600px; margin: 0 auto; font-family: 'Poppins', sans-serif; color: #00aaff;">
+    <h2 style="
+      font-weight: 700; 
+      font-size: 2.5rem; 
+      margin-bottom: 0.5rem; 
+      white-space: nowrap; /* prevent line break */
+    ">
+      Product & Application Security Engineer
+    </h2>
     <p style="font-weight: 600; font-size: 1.1rem; margin: 0.3rem 0;">
       6+ Years of Proven Expertise | Master’s in Cybersecurity, National College of Ireland
     </p>
@@ -197,17 +204,18 @@
       Partnering with forward-thinking organizations to build, protect, and future-proof their digital products against evolving cyber threats.
     </p>
 
-    <!-- Floating 3D tagline -->
+    <!-- Floating 3D tagline with teal-purple gradient -->
     <p style="
       font-style: italic;
       font-weight: 700;
       font-size: 1.6rem;
-      color: #00ffd5;
+      background: linear-gradient(45deg, #6a11cb, #2575fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       text-shadow:
-        0 0 8px #00ffd5,
-        0 0 20px #00ffd5,
-        0 0 30px #00ffd5,
-        0 0 40px #00ffd5;
+        0 0 8px rgba(101, 67, 255, 0.7),
+        0 0 20px rgba(101, 67, 255, 0.7),
+        0 0 30px rgba(101, 67, 255, 0.7);
       transform: translateZ(0);
       animation: floatText 3s ease-in-out infinite;
       margin-bottom: 2rem;
@@ -215,25 +223,45 @@
       “Securing What’s Next, Today.”
     </p>
 
-    <a href="#contact" 
-       class="cta-btn" 
-       style="
-         display: inline-block;
-         padding: 0.8rem 2.5rem;
-         font-weight: 700;
-         font-size: 1.1rem;
-         color: #000;
-         background: #00ffd5;
-         border-radius: 50px;
-         text-decoration: none;
-         box-shadow: 0 0 20px rgba(0, 255, 213, 0.7);
-         transition: background 0.3s ease, color 0.3s ease;
-       "
-       onmouseover="this.style.background='#00e6c3'; this.style.color='#111';"
-       onmouseout="this.style.background='#00ffd5'; this.style.color='#000';"
-    >
-      Let’s Build Security Together
-    </a>
+    <!-- Buttons side-by-side -->
+    <div style="display: inline-flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <a href="#contact" 
+         class="cta-btn" 
+         style="
+           padding: 0.8rem 2.5rem;
+           font-weight: 700;
+           font-size: 1.1rem;
+           color: #fff;
+           background: #6a11cb; /* rich purple */
+           border-radius: 50px;
+           text-decoration: none;
+           box-shadow: 0 0 20px rgba(106, 17, 203, 0.7);
+           transition: background 0.3s ease, color 0.3s ease;
+         "
+         onmouseover="this.style.background='#4b0da3'; this.style.color='#eee';"
+         onmouseout="this.style.background='#6a11cb'; this.style.color='#fff';"
+      >
+        Hire Me
+      </a>
+      <a href="#contact" 
+         class="cta-btn" 
+         style="
+           padding: 0.8rem 2.5rem;
+           font-weight: 700;
+           font-size: 1.1rem;
+           color: #6a11cb;
+           background: #e0d9ff; /* light purple */
+           border-radius: 50px;
+           text-decoration: none;
+           box-shadow: 0 0 12px rgba(106, 17, 203, 0.3);
+           transition: background 0.3s ease, color 0.3s ease;
+         "
+         onmouseover="this.style.background='#c9bfff'; this.style.color='#4b0da3';"
+         onmouseout="this.style.background='#e0d9ff'; this.style.color='#6a11cb';"
+      >
+        Let’s Build Security Together
+      </a>
+    </div>
   </div>
 
   <style>
@@ -241,22 +269,21 @@
       0%, 100% {
         transform: translateY(0) translateZ(0);
         text-shadow:
-          0 0 8px #00ffd5,
-          0 0 20px #00ffd5,
-          0 0 30px #00ffd5,
-          0 0 40px #00ffd5;
+          0 0 8px rgba(101, 67, 255, 0.7),
+          0 0 20px rgba(101, 67, 255, 0.7),
+          0 0 30px rgba(101, 67, 255, 0.7);
       }
       50% {
         transform: translateY(-10px) translateZ(0);
         text-shadow:
-          0 0 12px #00ffd5,
-          0 0 25px #00ffd5,
-          0 0 40px #00ffd5,
-          0 0 60px #00ffd5;
+          0 0 12px rgba(101, 67, 255, 0.9),
+          0 0 25px rgba(101, 67, 255, 0.9),
+          0 0 40px rgba(101, 67, 255, 0.9);
       }
     }
   </style>
 </header>
+
 
 
   <!-- ABOUT -->
