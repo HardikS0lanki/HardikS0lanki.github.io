@@ -213,14 +213,36 @@
       <circle cx="200" cy="200" r="70" stroke="#333" stroke-width="15" fill="none" />
       <circle cx="200" cy="200" r="50" stroke="#333" stroke-width="15" fill="none" />
 
-      <!-- Skill arcs -->
-      <!-- Product & Application Security 95% -->
-      <circle cx="200" cy="200" r="90" stroke="#00ffd5" stroke-width="15" fill="none"
-              stroke-dasharray="565.48" stroke-dashoffset="28" style="transition: stroke-dashoffset 1.5s ease-in-out;" />
+<!-- Skill gauge -->
+<svg width="400" height="250" viewBox="0 0 400 250" style="display:block; margin:auto;">
 
-      <!-- Labels -->
-      <text x="320" y="110" fill="#00ffd5" font-weight="700" font-size="14" transform="rotate(90 320 110)">Product & Application Security 95%</text>
-    </svg>
+  <!-- Background semicircle (track) -->
+  <path d="M 50 200 A 150 150 0 0 1 350 200" fill="none" stroke="#222" stroke-width="20" />
+
+  <!-- Progress arc (95%) -->
+  <path id="progressArc" fill="none" stroke="#00ffd5" stroke-width="20" stroke-linecap="round"
+    d="M 50 200 A 150 150 0 0 1 337 112"
+    style="filter: drop-shadow(0 0 6px #00ffd5); transition: stroke-dashoffset 1.5s ease-in-out;" />
+
+  <!-- Needle pointing to 95% -->
+  <line x1="200" y1="200" x2="320" y2="90" stroke="#00ffd5" stroke-width="4" stroke-linecap="round"
+    style="filter: drop-shadow(0 0 8px #00ffd5);" />
+
+  <!-- Center circle at base -->
+  <circle cx="200" cy="200" r="12" fill="#00ffd5" filter="drop-shadow(0 0 10px #00ffd5)" />
+
+  <!-- Label box -->
+  <rect x="270" y="50" width="130" height="45" rx="12" ry="12" fill="rgba(0,0,0,0.6)" />
+  
+  <!-- Label text -->
+  <text x="280" y="80" fill="#00ffd5" font-weight="700" font-size="16" font-family="Poppins, sans-serif">
+    Product & Application Security
+  </text>
+  <text x="280" y="105" fill="#00ffd5" font-weight="600" font-size="14" font-family="Poppins, sans-serif">
+    95%
+  </text>
+
+</svg>
   </div>
 
   <div style="max-width: 700px; margin: 2rem auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
