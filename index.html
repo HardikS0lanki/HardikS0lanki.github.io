@@ -32,11 +32,7 @@
       backdrop-filter: blur(6px);
     }
     nav h1 { font-size: 1.5rem; color: #00ffd5; font-weight: 800; }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; }
     nav ul li a {
       font-weight: 600;
       transition: 0.3s;
@@ -48,41 +44,20 @@
       color: #000;
       transform: scale(1.05);
     }
-    /* Hamburger menu toggle - hidden by default */
-    .menu-toggle {
-      display: none;
-      font-size: 1.8rem;
-      color: #00ffd5;
-      cursor: pointer;
-    }
 
     /* ===== HERO ===== */
     header {
       height: 100vh;
       background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(14,14,14,0.7)),
-                  url('https://images.unsplash.com/photo-1535223289827-42f1e9919769') center/cover no-repeat;
+                  url('https://images.unsplash.com/photo-1535223289827-42f1e9919769') center/cover;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 2rem;
-      flex-direction: column;
     }
-    header h2 {
-      font-size: 3rem;
-      font-weight: 800;
-      color: #00ffd5;
-      white-space: normal; /* changed from nowrap */
-      max-width: 100%;
-    }
-    header p {
-      font-size: 1.3rem;
-      max-width: 600px;
-      margin: 1rem auto;
-      white-space: normal; /* changed from nowrap */
-      color: #fff;
-      font-weight: 600;
-    }
+    header h2 { font-size: 3rem; font-weight: 800; color: #00ffd5; }
+    header p { font-size: 1.3rem; max-width: 600px; margin: 1rem auto; }
     .cta-btn {
       margin-top: 1.5rem;
       padding: 0.8rem 2rem;
@@ -91,32 +66,8 @@
       border-radius: 30px;
       font-weight: bold;
       transition: 0.3s;
-      display: inline-block;
-      box-shadow: 0 0 20px rgba(0, 255, 213, 0.7);
-      text-decoration: none;
     }
-    .cta-btn:hover {
-      transform: scale(1.1);
-      background: #00cca6;
-    }
-
-    /* Floating 3D tagline */
-    .floating-text {
-      font-style: italic;
-      font-weight: 700;
-      font-size: 1.6rem;
-      color: #fff;
-      text-shadow:
-        0 0 8px #fff,
-        0 0 20px #fff,
-        0 0 30px #fff,
-        0 0 40px #fff;
-      transform: translateZ(0);
-      animation: floatText 3s ease-in-out infinite;
-      margin-top: 1.5rem;
-      margin-bottom: 1rem;
-      max-width: 100%;
-    }
+    .cta-btn:hover { transform: scale(1.1); background: #00cca6; }
 
     /* ===== SECTIONS ===== */
     section {
@@ -192,7 +143,6 @@
       border-radius: 5px;
       background: #0e0e0e;
       color: #fff;
-      font-size: 1rem;
     }
     form button {
       background: #00ffd5;
@@ -202,7 +152,6 @@
       font-weight: bold;
       border-radius: 5px;
       transition: 0.3s;
-      cursor: pointer;
     }
     form button:hover { background: #00cca6; transform: scale(1.05); }
 
@@ -220,8 +169,85 @@
       transition: 0.3s;
     }
     .socials a:hover { color: #00cca6; }
+  </style>
+</head>
+<body>
 
-    /* Animation keyframes */
+  <!-- NAVIGATION -->
+  <nav>
+    <h1>Hardik Solanki</h1>
+    <ul>
+      <li><a href="#about">Profile</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#certs">Certifications</a></li>
+      <li><a href="#achievements">Achievements</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header>
+  <div style="text-align: center; width: max-content; margin: 0 auto; font-family: 'Poppins', sans-serif; color: #00ffd5;">
+    <h2 style="white-space: nowrap; margin: 0;">
+      Product & Application Security Engineer
+    </h2>
+
+  <div style="width: max-content; margin: 0 auto; text-align: center;">
+  <p style="font-weight: 600; font-size: 1.2rem; margin: 0.3rem 0 1rem 0; color: #fff; white-space: nowrap;">
+    6+ Years of Proven Expertise | MSc.Cybersecurity (Dublin, Ireland)
+  </p>
+</div>
+<div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+  <p style="font-weight: 600; font-size: 0.91rem; margin: 0.3rem 0; color: #fff; white-space: nowrap;">
+    Partnering with forward-thinking organizations to build, protect, and future-proof their digital products against evolving cyber threats.
+  </p>
+</div>
+
+
+    <!-- Floating 3D tagline -->
+    <p style="
+      font-style: italic;
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: #fff;
+      text-shadow:
+        0 0 8px #fff,
+        0 0 20px #fff,
+        0 0 30px #fff,
+        0 0 40px #fff;
+      transform: translateZ(0);
+      animation: floatText 3s ease-in-out infinite;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
+    ">
+      “Securing What’s Next, Today.”
+    </p>
+
+    <a href="#contact" 
+       class="cta-btn" 
+       style="
+         display: inline-block;
+         padding: 0.8rem 2.5rem;
+         font-weight: 700;
+         font-size: 1.1rem;
+         color: #000;
+         background: #00ffd5;
+         border-radius: 50px;
+         text-decoration: none;
+         box-shadow: 0 0 20px rgba(0, 255, 213, 0.7);
+         transition: background 0.3s ease, color 0.3s ease;
+       "
+       onmouseover="this.style.background='#00e6c3'; this.style.color='#111';"
+       onmouseout="this.style.background='#00ffd5'; this.style.color='#000';"
+    >
+      Hire Me - Let’s Build Security Together
+    </a>
+  </div>
+</header>
+
+  <style>
     @keyframes floatText {
       0%, 100% {
         transform: translateY(0) translateZ(0);
@@ -240,293 +266,225 @@
           0 0 60px #00ffd5;
       }
     }
-
-    /* ===== RESPONSIVE STYLES ===== */
-    @media (max-width: 1024px) {
-      section {
-        padding: 3rem 2rem;
-      }
-    }
-
-    @media (max-width: 768px) {
-      nav {
-        padding: 1rem 1.5rem;
-      }
-      nav ul {
-        flex-direction: column;
-        gap: 0.8rem;
-        background: rgba(0,0,0,0.9);
-        position: fixed;
-        top: 60px;
-        right: 0;
-        width: 220px;
-        height: calc(100% - 60px);
-        padding: 1rem;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-        z-index: 1001;
-        border-radius: 0 0 0 10px;
-      }
-      nav ul.active {
-        transform: translateX(0);
-      }
-      nav ul li a {
-        display: block;
-        padding: 0.5rem 1rem;
-      }
-      nav h1 {
-        font-size: 1.3rem;
-      }
-      /* Show hamburger */
-      .menu-toggle {
-        display: block;
-      }
-
-      /* Header */
-      header {
-        height: auto;
-        padding: 3rem 1.5rem;
-      }
-      header h2 {
-        font-size: 2rem;
-        white-space: normal;
-      }
-      header p {
-        font-size: 1rem;
-        max-width: 100%;
-      }
-      .cta-btn {
-        font-size: 1rem;
-        padding: 0.7rem 1.8rem;
-      }
-      .floating-text {
-        font-size: 1.2rem !important;
-        margin: 1rem 0;
-      }
-
-      /* Sections */
-      section {
-        padding: 3rem 1.5rem;
-      }
-
-      /* Skills grid - stack vertically */
-      .section-content {
-        display: block !important;
-      }
-      #skills > div[style] {
-        display: block !important;
-        max-width: 100% !important;
-        margin: 2rem auto !important;
-      }
-
-      /* Skills cards */
-      .skill {
-        margin-bottom: 1.5rem;
-      }
-
-      /* Timeline */
-      .timeline {
-        border-left: 3px solid #00ffd5;
-        padding-left: 1rem;
-      }
-      .timeline-item::before {
-        left: -8px;
-        width: 12px;
-        height: 12px;
-      }
-
-      /* Contact form */
-      form {
-        padding: 1.5rem;
-      }
-      form input, form textarea {
-        font-size: 1rem;
-      }
-
-      /* Footer */
-      footer {
-        padding: 1rem;
-        font-size: 0.85rem;
-      }
-      .socials a {
-        font-size: 1.3rem;
-      }
-    }
-
-    @media (max-width: 400px) {
-      nav ul {
-        width: 160px;
-      }
-      header h2 {
-        font-size: 1.6rem;
-      }
-      .cta-btn {
-        padding: 0.6rem 1.5rem;
-        font-size: 0.9rem;
-      }
-      .socials a {
-        font-size: 1.1rem;
-      }
-    }
   </style>
-</head>
-<body>
-
-  <!-- NAVIGATION -->
-  <nav>
-    <h1>Hardik Solanki</h1>
-    <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
-    <ul>
-      <li><a href="#about">Profile</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#certs">Certifications</a></li>
-      <li><a href="#achievements">Achievements</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- HERO -->
-  <header>
-    <div style="text-align: center; width: max-content; margin: 0 auto; font-family: 'Poppins', sans-serif; color: #00ffd5;">
-      <h2>
-        Product & Application Security Engineer
-      </h2>
-
-      <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
-        <p style="font-weight: 600; font-size: 1.2rem; margin: 0.3rem 0 1rem 0; color: #fff;">
-          6+ Years of Proven Expertise | MSc.Cybersecurity (Dublin, Ireland)
-        </p>
-        <p style="font-weight: 600; font-size: 0.91rem; margin: 0.3rem 0; color: #fff;">
-          Partnering with forward-thinking organizations to build, protect, and future-proof their digital products against evolving cyber threats.
-        </p>
-      </div>
-
-      <!-- Floating 3D tagline -->
-      <p class="floating-text">
-        “Securing What’s Next, Today.”
-      </p>
-
-      <a href="#contact" class="cta-btn"
-         onmouseover="this.style.background='#00e6c3'; this.style.color='#111';"
-         onmouseout="this.style.background='#00ffd5'; this.style.color='#000';"
-      >
-        Hire Me - Let’s Build Security Together
-      </a>
-    </div>
-  </header>
+</header>
 
   <!-- ABOUT -->
   <section id="about">
     <h2>Profile Summary</h2>
-    <div class="section-content">
-      <p>
-        I am an enthusiastic and results-driven Senior Security Engineer with over 6 years of progressive experience in Application and Product Security, combining deep expertise in both offensive and defensive security practices. I specialize in Threat Modeling, Secure SDLC/SSDLC, Security Architecture, and Vulnerability Management—embedding security seamlessly into the product lifecycle from design to deployment with a strong shift-left approach. My hands-on experience spans Secure Design Reviews, Secure Coding Practices, Penetration Testing, and Compliance & Auditing, with a strong command of leading industry standards such as OWASP Top 10, OWASP ASVS, NIST, and CWE/SANS Top 25. 
-        <br><br>
-        Passionate about modern DevSecOps practices, I focus on automating security testing, integrating robust security controls into CI/CD pipelines, and fostering a culture of secure coding and engineering excellence. Skilled in risk identification and mitigation across infrastructure and application layers, I am recognized for resolving security issues within defined SLAs, clear cross-functional communication, and a collaborative approach that strengthens organizational security posture. I am eager to contribute to innovative, security-first initiatives in forward-thinking environments.
-      </p>
-    </div>
+<div class="section-content">
+  <p>
+    I am an enthusiastic and results-driven Senior Security Engineer with over 6 years of progressive experience in Application and Product Security, combining deep expertise in both offensive and defensive security practices. I specialize in Threat Modeling, Secure SDLC/SSDLC, Security Architecture, and Vulnerability Management—embedding security seamlessly into the product lifecycle from design to deployment with a strong shift-left approach. My hands-on experience spans Secure Design Reviews, Secure Coding Practices, Penetration Testing, and Compliance & Auditing, with a strong command of leading industry standards such as OWASP Top 10, OWASP ASVS, NIST, and CWE/SANS Top 25. 
+    <br><br>
+    Passionate about modern DevSecOps practices, I focus on automating security testing, integrating robust security controls into CI/CD pipelines, and fostering a culture of secure coding and engineering excellence. Skilled in risk identification and mitigation across infrastructure and application layers, I am recognized for resolving security issues within defined SLAs, clear cross-functional communication, and a collaborative approach that strengthens organizational security posture. I am eager to contribute to innovative, security-first initiatives in forward-thinking environments.
+  </p>
+</div>
+
   </section>
 
-  <!-- SKILLS -->
-  <section id="skills">
-    <h2>Skills</h2>
-    <div style="max-width: 700px; margin: auto; display: flex; justify-content: center;">
-      <svg viewBox="0 0 400 400" width="400" height="400" style="transform: rotate(-90deg); max-width: 100%; height: auto;">
-        <!-- Background circles -->
-        <circle cx="200" cy="200" r="90" stroke="#333" stroke-width="15" fill="none" />
-        <circle cx="200" cy="200" r="70" stroke="#333" stroke-width="15" fill="none" />
-        <circle cx="200" cy="200" r="50" stroke="#333" stroke-width="15" fill="none" />
-      </svg>
+<!-- SKILLS -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div style="max-width: 700px; margin: auto; display: flex; justify-content: center;">
+    <svg viewBox="0 0 400 400" width="400" height="400" style="transform: rotate(-90deg);">
+      <!-- Background circles -->
+      <circle cx="200" cy="200" r="90" stroke="#333" stroke-width="15" fill="none" />
+      <circle cx="200" cy="200" r="70" stroke="#333" stroke-width="15" fill="none" />
+      <circle cx="200" cy="200" r="50" stroke="#333" stroke-width="15" fill="none" />
 
-      <svg width="480" height="280" viewBox="0 0 480 280" style="display: block; margin: 3rem auto; max-width: 100%; height: auto;">
-        <!-- Background semicircle -->
-        <path
-          d="M 50 200 A 150 150 0 0 1 350 200"
-          fill="none"
-          stroke="#222"
-          stroke-width="20"
-          stroke-linecap="round"
-        />
-        <!-- Progress arc (95%) -->
-        <path
-          d="M 50 200 A 150 150 0 0 1 341 122"
-          fill="none"
-          stroke="#00ffd5"
-          stroke-width="20"
-          stroke-linecap="round"
-          style="filter: drop-shadow(0 0 10px #00ffd5); transition: stroke-dashoffset 1.5s ease-in-out;"
-        />
-        <!-- Needle -->
-        <line
-          x1="200"
-          y1="200"
-          x2="341"
-          y2="122"
-          stroke="#00ffd5"
-          stroke-width="4"
-          stroke-linecap="round"
-          style="filter: drop-shadow(0 0 12px #00ffd5);"
-        />
-        <!-- Center circle -->
-        <circle
-          cx="200"
-          cy="200"
-          r="14"
-          fill="#00ffd5"
-          style="filter: drop-shadow(0 0 12px #00ffd5);"
-        />
-        <!-- Vertical label on right side, upright -->
-        <text
-          x="450"
-          y="140"
-          font-family="Poppins, sans-serif"
-          font-weight="700"
-          font-size="18"
-          fill="#00ffd5"
-          text-anchor="middle"
-          dominant-baseline="middle"
-          transform="rotate(90 450,140)"
-        >
-          Product &amp; Application Security 95%
-        </text>
-      </svg>
-    </div>
+<svg width="480" height="280" viewBox="0 0 480 280" style="display: block; margin: 3rem auto;">
+  <!-- Background semicircle -->
+  <path
+    d="M 50 200 A 150 150 0 0 1 350 200"
+    fill="none"
+    stroke="#222"
+    stroke-width="20"
+    stroke-linecap="round"
+  />
+  <!-- Progress arc (95%) -->
+  <path
+    d="M 50 200 A 150 150 0 0 1 341 122"
+    fill="none"
+    stroke="#00ffd5"
+    stroke-width="20"
+    stroke-linecap="round"
+    style="filter: drop-shadow(0 0 10px #00ffd5); transition: stroke-dashoffset 1.5s ease-in-out;"
+  />
+  <!-- Needle -->
+  <line
+    x1="200"
+    y1="200"
+    x2="341"
+    y2="122"
+    stroke="#00ffd5"
+    stroke-width="4"
+    stroke-linecap="round"
+    style="filter: drop-shadow(0 0 12px #00ffd5);"
+  />
+  <!-- Center circle -->
+  <circle
+    cx="200"
+    cy="200"
+    r="14"
+    fill="#00ffd5"
+    style="filter: drop-shadow(0 0 12px #00ffd5);"
+  />
+  <!-- Vertical label on right side, upright -->
+  <text
+    x="450"
+    y="140"
+    font-family="Poppins, sans-serif"
+    font-weight="700"
+    font-size="18"
+    fill="#00ffd5"
+    text-anchor="middle"
+    dominant-baseline="middle"
+    transform="rotate(90 450,140)"
+  >
+    Product &amp; Application Security 95%
+  </text>
+</svg>
 
-    <div style="max-width: 700px; margin: 2rem auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
-      <div class="skill">
-        <h3>Application Security</h3>
-        <div class="progress-bar"><div class="progress-fill" style="width: 95%;"></div></div>
-      </div>
-      <div class="skill">
-        <h3>Threat Modeling</h3>
-        <div class="progress-bar"><div class="progress-fill" style="width: 90%;"></div></div>
-      </div>
-      <div class="skill">
-        <h3>Penetration Testing</h3>
-        <div class="progress-bar"><div class="progress-fill" style="width: 85%;"></div></div>
-      </div>
-      <div class="skill">
-        <h3>DevSecOps Automation</h3>
-        <div class="progress-bar"><div class="progress-fill" style="width: 80%;"></div></div>
-      </div>
-    </div>
-  </section>
+
+  </div>
+
+  <div style="max-width: 700px; margin: 2rem auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Application Security</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="92%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Product Security</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="90%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Secure Software Development Lifecycle (SDLC / SSDLC)</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="91%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Secure Design Review</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="89%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Security Architecture Review</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="88%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Threat Modeling</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="87%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Secure Code Reviews</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="87%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>CI/CD Pipeline Security</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="88%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>DevSecOps</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="88%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Incident Response (PSIRT)</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="85%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Risk Acceptance</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="83%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Risk Assessment</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="83%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>AWS Cloud Security</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="85%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Vulnerability Assessment</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="87%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Penetration Testing</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="85%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Network Security</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="82%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Wireless Security</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="80%"></div></div>
+  </div>
+
+  <div class="skill" style="background:#1a1a1a; padding: 1rem; border-radius: 10px; box-shadow: 0 0 15px rgba(0,255,213,0.2);">
+    <h3>Configuration Reviews</h3>
+    <div class="progress-bar"><div class="progress-fill" data-fill="80%"></div></div>
+  </div>
+
+</div>
+
+  <style>
+    .progress-bar {
+      height: 10px;
+      background: #333;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-top: 0.5rem;
+    }
+    .progress-fill {
+      height: 100%;
+      background: #00ffd5;
+      width: 0;
+      transition: width 1.5s ease-in-out;
+    }
+  </style>
+
+  <script>
+    // Animate progress bars on scroll
+    const fills = document.querySelectorAll('.progress-fill');
+    window.addEventListener('scroll', () => {
+      fills.forEach(fill => {
+        const rect = fill.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          fill.style.width = fill.getAttribute('data-fill');
+        }
+      });
+    });
+  </script>
+</section>
 
   <!-- EXPERIENCE -->
   <section id="experience">
-    <h2>Experience</h2>
+    <h2>Work Experience</h2>
     <div class="timeline">
       <div class="timeline-item">
-        <h3>Senior Security Engineer at XYZ Corp</h3>
-        <p><em>Jan 2022 - Present</em></p>
-        <p>Leading product security initiatives, threat modeling, and penetration testing across SaaS platforms.</p>
+        <h3>Senior Product Security Engineer - XYZ Corp</h3>
+        <span>2020 - Present</span>
+        <p>Lead security reviews, integrated security automation in CI/CD pipelines, and managed product security incident response.</p>
       </div>
       <div class="timeline-item">
-        <h3>Security Analyst at ABC Ltd</h3>
-        <p><em>Jun 2018 - Dec 2021</em></p>
-        <p>Performed vulnerability assessments, compliance audits, and automated security tests within CI/CD pipelines.</p>
+        <h3>Application Security Engineer - ABC Ltd</h3>
+        <span>2016 - 2020</span>
+        <p>Performed static and dynamic code analysis, penetration testing, and secure code reviews.</p>
       </div>
     </div>
   </section>
@@ -534,70 +492,155 @@
   <!-- EDUCATION -->
   <section id="education">
     <h2>Education</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <h3>MSc Cybersecurity</h3>
-        <p><em>Dublin, Ireland - 2018</em></p>
-      </div>
-      <div class="timeline-item">
-        <h3>BSc Computer Science</h3>
-        <p><em>India - 2016</em></p>
-      </div>
-    </div>
+    <p>Master’s in Cybersecurity - University of XYZ</p>
+    <p>Bachelor’s in Computer Engineering - University of ABC</p>
   </section>
 
   <!-- CERTIFICATIONS -->
   <section id="certs">
     <h2>Certifications</h2>
-    <ul style="max-width: 700px; margin: auto; list-style-type: disc; padding-left: 1.5rem;">
-      <li>Certified Information Systems Security Professional (CISSP)</li>
+    <ul>
       <li>Certified Ethical Hacker (CEH)</li>
-      <li>GIAC Web Application Penetration Tester (GWAPT)</li>
-      <li>Offensive Security Certified Professional (OSCP)</li>
+      <li>Certified Cloud Security Professional (CCSP)</li>
+      <li>Awarded "Top Cybersecurity Engineer" - 2022</li>
     </ul>
   </section>
 
   <!-- ACHIEVEMENTS -->
   <section id="achievements">
-    <h2>Achievements</h2>
-    <ul style="max-width: 700px; margin: auto; list-style-type: disc; padding-left: 1.5rem;">
-      <li>Presented "Innovative Threat Modeling in Agile" at DEFCON 2024</li>
-      <li>Published research paper on AI-driven vulnerability detection</li>
-      <li>Recognized as Employee of the Year 2023 at XYZ Corp</li>
-      <li>Organized and led company's first internal AppSec Hackathon</li>
+    <h2>Achievements/Awards</h2>
+    <ul>
+      <li>Presented "Secure SDLC in Microservices" at OWASP AppSec 2024</li>
+      <li>Winner — Regional Capture The Flag (CTF) Competition 2023</li>
+      <li>Recognized as "Security Champion" at XYZ Corp — 2022</li>
     </ul>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <h2>Contact Me</h2>
-    <form>
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-      <button type="submit">Send Message</button>
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact Me</h2>
+  <p>Email: <a href="mailto:Hardiksolanki096@gmail.com">Hardiksolanki096@gmail.com</a></p>
+
+  <div class="contact-form">
+    <form id="contact-form">
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+      <input type="email" id="email" name="email" placeholder="Your Email" required>
+      <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+
+      <!-- Google reCAPTCHA v2 checkbox -->
+      <div class="g-recaptcha" data-sitekey="6LeUOKErAAAAAL1WicaB57clHSF39mtWCd4lBD6P"></div>
+
+      <button type="submit">Send Email</button>
     </form>
-  </section>
+    <p id="form-status" style="color:#00ffd5; margin-top:10px;"></p>
+  </div>
+</section>
+
+<!-- Add EmailJS SDK -->
+<script src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
+
+<!-- Add Google reCAPTCHA -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<script>
+  // Initialize EmailJS with your Public Key (User ID)
+  emailjs.init('Xdvm3cGhUi3gqBREQ');
+
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+
+  // Rate limiting: max 25 submits per minute using localStorage
+  function canSubmit() {
+    const now = Date.now();
+    const windowMs = 60 * 1000; // 1 minute
+    const maxRequests = 25;
+    let timestamps = JSON.parse(localStorage.getItem('submitTimestamps') || '[]');
+
+    // Remove timestamps older than 1 minute
+    timestamps = timestamps.filter(ts => now - ts < windowMs);
+
+    if (timestamps.length >= maxRequests) {
+      return false;
+    }
+
+    // Add current timestamp and save
+    timestamps.push(now);
+    localStorage.setItem('submitTimestamps', JSON.stringify(timestamps));
+    return true;
+  }
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    if (!canSubmit()) {
+      status.style.color = 'red';
+      status.textContent = 'Too many requests! Please wait a minute before trying again.';
+      return;
+    }
+
+    const recaptchaResponse = grecaptcha.getResponse();
+    if (!recaptchaResponse) {
+      status.style.color = 'red';
+      status.textContent = 'Please complete the CAPTCHA.';
+      return;
+    }
+
+    const templateParams = {
+      from_name: form.name.value,
+      from_email: form.email.value,
+      message: form.message.value,
+      'g-recaptcha-response': recaptchaResponse
+    };
+
+    status.style.color = '#00ffd5';
+    status.textContent = 'Sending message...';
+
+    emailjs.send('service_9i0tj9c', 'template_lhxghnm', templateParams)
+      .then(() => {
+        status.style.color = '#00ffd5';
+        status.textContent = 'Message sent successfully!';
+        form.reset();
+        grecaptcha.reset();
+      }, (err) => {
+        status.style.color = 'red';
+        status.textContent = 'Failed to send message. Please try again later.';
+        console.error('EmailJS error:', err);
+      });
+  });
+</script>
+
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2025 Hardik Solanki. All Rights Reserved.</p>
     <div class="socials">
-      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-      <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/hardiksolanki10" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/HardikS0lanki" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://x.com/Hardik_S0lanki" target="_blank"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://hardik-solanki.medium.com/" target="_blank"><i class="fab fa-medium"></i></a>
     </div>
+    <p>&copy; 2025 Hardik Solanki. All Rights Reserved.</p>
   </footer>
 
-  <script>
-    // Mobile nav toggle
-    const menuToggle = document.getElementById('menu-toggle');
-    const navUl = document.querySelector('nav ul');
-
-    menuToggle.addEventListener('click', () => {
-      navUl.classList.toggle('active');
-    });
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@3/tsparticles.bundle.min.js"></script>
+<script>
+tsParticles.load("tsparticles", {
+  background: { color: "transparent" },
+  particles: {
+    number: { value: 60, density: { enable: true, area: 800 } },
+    color: { value: "#00ffd5" },
+    shape: { type: "circle" },
+    opacity: { value: 0.4, random: true },
+    size: { value: 3, random: true },
+    move: { enable: true, speed: 1, direction: "none", outModes: { default: "bounce" } },
+    links: { enable: true, color: "#00ffd5", distance: 150, opacity: 0.4, width: 1 }
+  },
+  interactivity: {
+    events: { onHover: { enable: true, mode: "grab" }, resize: true },
+    modes: { grab: { distance: 200, links: { opacity: 0.8 } } }
+  },
+  retina_detect: true
+});
+</script>
 
 </body>
 </html>
