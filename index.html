@@ -504,20 +504,99 @@
     </ul>
   </section>
 
-  <!-- CONTACT -->
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: <a href="mailto:Hardiksolanki096@gmail.com">Hardiksolanki096@gmail.com</a></p>
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact Me</h2>
+  <p>Email: <a href="mailto:Hardiksolanki096@gmail.com">Hardiksolanki096@gmail.com</a></p>
 
-        <div class="contact-form">
-            <form action="mailto:Hardiksolanki096@gmail.com" method="post" enctype="text/plain">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" rows="5" placeholder="Your Message"></textarea>
-                <button type="submit">Send Email</button>
-            </form>
-        </div>
-    </section>
+  <div class="contact-form">
+    <form id="contact-form">
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+      <input type="email" id="email" name="email" placeholder="Your Email" required>
+      <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+
+      <!-- Google reCAPTCHA v2 checkbox -->
+      <div class="g-recaptcha" data-sitekey="6LfBNKErAAAAAKl-xEiOaVmr06ZXfqIzrmPFi2n1"></div>
+
+      <button type="submit">Send Email</button>
+    </form>
+    <p id="form-status" style="color:#00ffd5; margin-top:10px;"></p>
+  </div>
+</section>
+
+<!-- Add EmailJS SDK -->
+<script src="https://cdn.emailjs.com/sdk/3.2/email.min.js"></script>
+
+<!-- Add Google reCAPTCHA -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<script>
+  // Initialize EmailJS with your Public Key (User ID)
+  emailjs.init('Xdvm3cGhUi3gqBREQ');
+
+  const form = document.getElementById('contact-form');
+  const status = document.getElementById('form-status');
+
+  // Rate limiting: max 25 submits per minute using localStorage
+  function canSubmit() {
+    const now = Date.now();
+    const windowMs = 60 * 1000; // 1 minute
+    const maxRequests = 25;
+    let timestamps = JSON.parse(localStorage.getItem('submitTimestamps') || '[]');
+
+    // Remove timestamps older than 1 minute
+    timestamps = timestamps.filter(ts => now - ts < windowMs);
+
+    if (timestamps.length >= maxRequests) {
+      return false;
+    }
+
+    // Add current timestamp and save
+    timestamps.push(now);
+    localStorage.setItem('submitTimestamps', JSON.stringify(timestamps));
+    return true;
+  }
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    if (!canSubmit()) {
+      status.style.color = 'red';
+      status.textContent = 'Too many requests! Please wait a minute before trying again.';
+      return;
+    }
+
+    const recaptchaResponse = grecaptcha.getResponse();
+    if (!recaptchaResponse) {
+      status.style.color = 'red';
+      status.textContent = 'Please complete the CAPTCHA.';
+      return;
+    }
+
+    const templateParams = {
+      from_name: form.name.value,
+      from_email: form.email.value,
+      message: form.message.value,
+      'g-recaptcha-response': recaptchaResponse
+    };
+
+    status.style.color = '#00ffd5';
+    status.textContent = 'Sending message...';
+
+    emailjs.send('service_9i0tj9c', 'template_lhxghnm', templateParams)
+      .then(() => {
+        status.style.color = '#00ffd5';
+        status.textContent = 'Message sent successfully!';
+        form.reset();
+        grecaptcha.reset();
+      }, (err) => {
+        status.style.color = 'red';
+        status.textContent = 'Failed to send message. Please try again later.';
+        console.error('EmailJS error:', err);
+      });
+  });
+</script>
+
 
   <!-- FOOTER -->
   <footer>
